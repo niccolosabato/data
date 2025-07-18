@@ -5,6 +5,6 @@ while True:
         break
     age = int(user_input)
     if age >= 18:
-        print("OK")
+        print("Maggiorenne")
     else:
-        print("Non OK")
+        print("Non maggiorenne")
