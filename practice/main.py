@@ -3,3 +3,16 @@ import pandas as pd
 
 customers = pd.read_csv("customers_list_light.csv")
 print(customers)
+
+# import html page to scrape data
+from bs4 import BeautifulSoup as bs
+
+with open("companies.html", "r", encoding="utf-8") as f:
+    soup = bs(f.read(), "html.parser")
+
+companies_html_elements = soup.body.ul.find_all("li")
+companies = []
+for company in companies_html_elements:
+    companies.append(company.span.text)
+
+print(companies[:10])  # print first 10 companies
